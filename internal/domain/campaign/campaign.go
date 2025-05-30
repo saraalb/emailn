@@ -14,18 +14,18 @@ type Campaign struct {
 }
 
 func NewCampaign(name string, content string, emails []string) *Campaign {
-	
+
 	contacts := make([]Contact, len(emails))
 	for index, email := range emails {
 		contacts[index].Email = email
 
 	}
-	
-	return &Campaign {
-		ID: "1",
-		Name: name,
-		Content: content,
+
+	return &Campaign{
+		ID:        name,
+		Name:      "1",
+		Content:   content,
 		CreatedOn: time.Now(),
-		Contacts: contacts,
+		Contacts:  contacts,
 	}
 }
