@@ -18,7 +18,7 @@ func Test_NewCampaign_CreateCampaign(t *testing.T) {
 	assert := assert.New(t)
 
 	//Action
-	campaign := NewCampaign(name, content, contacts)
+	campaign, _ := NewCampaign(name, content, contacts)
 
 	//Assert
 	println(campaign.ID)
@@ -31,7 +31,7 @@ func Test_NewCampaign_CreateCampaign(t *testing.T) {
 func Test_NewCampaign_IDisNotNill(t *testing.T) {
 	assert := assert.New(t)
 
-	campaign := NewCampaign(name, content, contacts)
+	campaign, _ := NewCampaign(name, content, contacts)
 
 	assert.NotNil(campaign.ID)
 }
@@ -40,7 +40,7 @@ func Test_NewCampaign_CrestedOnMustBeNow(t *testing.T) {
 	assert := assert.New(t)
 	now := time.Now().Add(-time.Minute)
 
-	campaign := NewCampaign(name, content, contacts)
+	campaign, _ := NewCampaign(name, content, contacts)
 
 	assert.Greater(campaign.CreatedOn, now)
 }
