@@ -1,22 +1,33 @@
 package campaign
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestNewCampaign(t *testing.T) {
+	//Arrange
+	assert := assert.New(t)
 	name := "Campaing x"
 	content := "Body"
 	contacts := []string{"email1@e.com", "email2@e.com"}
+	nome := "nome"
+	conteudo := "conteudo"
+	contato := []string{"contato1@e.com", "contato2@e.com"}
 
+	//Action
 	campaign := NewCampaign(name, content, contacts)
-
-	if campaign.ID != "1" {
-		t.Errorf("Expected campaign id to be 1, but got %s", campaign.ID)
-	} else if campaign.Name != name {
-		t.Errorf("Expected campaign name to be %s, but got %s", name, campaign.Name)
-	} else if campaign.Content != content {
-		t.Errorf("Expected campaign content to be %s, but got %s", content, campaign.Content)
-	} else if len(campaign.Contacts) != len(contacts) {
-		t.Errorf("Expected campaign contacts to be %d, but got %d", len(contacts), len(campaign.Contacts))
-	}
+	campaign2 :=  NewCampaign(nome, conteudo, contato)
+	
+	//Assert
+	assert.Equal(campaign.ID, "1")
+	assert.Equal(campaign.Name, name)
+	assert.Equal(campaign.Content, content)
+	assert.Equal(len(campaign.Contacts), len(contacts))
+	assert.Equal(campaign2.ID, "1")
+	assert.Equal(campaign2.Name, nome)
+	assert.Equal(campaign2.Content, conteudo)
+	assert.Equal(len(campaign2.Contacts), len(contato))
 
 }
