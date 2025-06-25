@@ -45,7 +45,7 @@ func Test_Create_ValidateDomainError(t *testing.T) {
 
 	_, err := service.Create(contract.NewCampaign{})
 
-	assert.False(errors.Is(internalerrors.ErrInternal, err))
+	assert.False(errors.Is(err, internalerrors.ErrInternal))
 }
 
 func Test_Create_SaveCampaign(t *testing.T) {
